@@ -1,0 +1,38 @@
+{
+  "name": "bgx-cli",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "bgx": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lpenser/bgx-cli.git"
+  },
+  "keywords": [
+    "vue",
+    "react",
+    "angular",
+    "cli"
+  ],
+  "author": "lpenser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lpenser/bgx-cli/issues"
+  },
+  "homepage": "https://github.com/Lpenser/bgx-cli#readme",
+  "devDependencies": {
+    "@types/node": "^10.12.9"
+  },
+  "dependencies": {
+    "@lpenser/git-clone": "^0.0.4",
+    "chalk": "^2.4.1",
+    "commander": "^2.19.0",
+    "inquirer": "^6.2.0",
+    "ora": "^3.0.0"
+  }
+}

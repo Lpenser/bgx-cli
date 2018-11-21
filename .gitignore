@@ -1,0 +1,14 @@
+logs/
+npm-debug.log
+node_modules/
+coverage/
+.idea/
+run/
+logs/
+.DS_Store
+.vscode
+*.swp
+*.lock
+.history
+# 忽略js
+*.js
