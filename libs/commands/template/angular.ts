@@ -1,7 +1,7 @@
 export default {
     "<%= appName %>": {
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "<%= appName %>",
       "projectType": "application",
       "prefix": "com",
       "schematics": {
@@ -33,18 +33,18 @@ export default {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/<%= appName %>",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "index": "<%= appName %>/index.html",
+            "main": "<%= appName %>/main.ts",
+            "polyfills": "<%= appName %>/polyfills.ts",
+            "tsConfig": "<%= appName %>/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/manifest.json"
+              "<%= appName %>/favicon.ico",
+              "<%= appName %>/assets",
+              "<%= appName %>/manifest.json"
             ],
             "styles": [
               "./node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css",
-              "src/styles.less",
+              "<%= appName %>/styles.less",
               "./node_modules/nprogress/nprogress.css"
             ],
             "scripts": []
@@ -53,8 +53,8 @@ export default {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "<%= appName %>/environments/environment.ts",
+                  "with": "<%= appName %>/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -70,16 +70,16 @@ export default {
             "hmr": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.hmr.ts"
+                  "replace": "<%= appName %>/environments/environment.ts",
+                  "with": "<%= appName %>/environments/environment.hmr.ts"
                 }
               ]
             },
             "inner": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.inner.ts"
+                  "replace": "<%= appName %>/environments/environment.ts",
+                  "with": "<%= appName %>/environments/environment.inner.ts"
                 }
               ],
               "optimization": true,
@@ -121,18 +121,18 @@ export default {
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "main": "<%= appName %>/test.ts",
+            "polyfills": "<%= appName %>/polyfills.ts",
+            "tsConfig": "<%= appName %>/tsconfig.spec.json",
+            "karmaConfig": "<%= appName %>/karma.conf.js",
             "styles": [
               "styles.less"
             ],
             "scripts": [],
             "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/manifest.json"
+              "<%= appName %>/favicon.ico",
+              "<%= appName %>/assets",
+              "<%= appName %>/manifest.json"
             ]
           }
         },
@@ -140,8 +140,8 @@ export default {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "<%= appName %>/tsconfig.app.json",
+              "<%= appName %>/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
