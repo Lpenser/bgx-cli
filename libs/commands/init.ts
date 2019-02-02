@@ -4,6 +4,7 @@ import * as path from 'path';
 import copyTpl from '../utils/copyTpl';
 import downloadTemplate from '../utils/down';
 import {isFileNameExcessLimit, isFileNameValid, isFileNameNameRep} from '../utils/validation';
+import config from '../../config/config'
 export default class CommandInit {
     answers = {};
     question = [
@@ -34,6 +35,14 @@ export default class CommandInit {
             message: '请选择需要创建的项目',
             choices: ['angular'], // , 'vue','react','react-mobile'
             default: 'angular'
+        },
+        {
+            type: 'list',
+            name: 'gitUrl',
+            required: true,
+            message: '请选择模板仓库地址',
+            choices:  Object.keys(config),
+            default: 'ARCH'
         },
         {
             type: 'input',
@@ -92,7 +101,7 @@ export default class CommandInit {
 
     protected async createAngular(){
         const rootDir = path.join(process.cwd(), this.answers['appName']);
-        const template = 'http://192.168.1.122:3000:erp-front-project/bang-template';
+        const template = config[this.answers['gitUrl']];
         await downloadTemplate(template,rootDir);
         const sourcePackage = `${rootDir}/.gitkeep.json`;
         const destinationPackage = `${rootDir}/package.json`;

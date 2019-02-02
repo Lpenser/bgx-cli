@@ -13,6 +13,7 @@ const path = require("path");
 const copyTpl_1 = require("../utils/copyTpl");
 const down_1 = require("../utils/down");
 const validation_1 = require("../utils/validation");
+const config_1 = require("../../config/config");
 class CommandInit {
     constructor() {
         this.answers = {};
@@ -44,6 +45,14 @@ class CommandInit {
                 message: '请选择需要创建的项目',
                 choices: ['angular'],
                 default: 'angular'
+            },
+            {
+                type: 'list',
+                name: 'gitUrl',
+                required: true,
+                message: '请选择模板仓库地址',
+                choices: Object.keys(config_1.default),
+                default: 'ARCH'
             },
             {
                 type: 'input',
@@ -97,7 +106,7 @@ class CommandInit {
     createAngular() {
         return __awaiter(this, void 0, void 0, function* () {
             const rootDir = path.join(process.cwd(), this.answers['appName']);
-            const template = 'http://192.168.1.122:3000:erp-front-project/bang-template';
+            const template = config_1.default[this.answers['gitUrl']];
             yield down_1.default(template, rootDir);
             const sourcePackage = `${rootDir}/.gitkeep.json`;
             const destinationPackage = `${rootDir}/package.json`;
