@@ -13,7 +13,8 @@ const ora = require("ora");
 function downloadTemplate(template, templateDir) {
     return __awaiter(this, void 0, void 0, function* () {
         const spinner = ora('正在初始化项目').start();
-        yield git_clone_1.default(template, templateDir, {}, function (err) {
+        const downloadUrl = template.replace(/(?<!http:\/?)\//, ':');
+        yield git_clone_1.default(downloadUrl, templateDir, {}, function (err) {
             return __awaiter(this, void 0, void 0, function* () {
                 yield spinner.stop();
                 if (err) {

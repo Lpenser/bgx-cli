@@ -25,10 +25,10 @@ function deleteFolder(path) {
             files = fs.readdirSync(path);
             files.forEach((file, index) => {
                 var curPath = path + "/" + file;
-                if (fs.statSync(curPath).isDirectory()) {
+                if (fs.statSync(curPath).isDirectory()) { // recurse
                     deleteFolder(curPath);
                 }
-                else {
+                else { // delete file
                     fs.unlinkSync(curPath);
                 }
             });

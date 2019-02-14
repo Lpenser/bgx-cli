@@ -51,8 +51,11 @@ class CommandInit {
                 name: 'gitUrl',
                 required: true,
                 message: '请选择模板仓库地址',
-                choices: Object.keys(config_1.default),
-                default: 'ARCH'
+                choices: Object.keys(config_1.default).map(value => `${value}(${config_1.default[value]})`),
+                filter: function (val) {
+                    return val.replace(/\([^)]*\)/, '');
+                },
+                default: 'ARCH',
             },
             {
                 type: 'input',

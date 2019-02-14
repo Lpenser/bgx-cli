@@ -4,7 +4,7 @@ import * as commander from 'commander';
 import {error} from '../utils/logs';
 import CommandInit from '../commands/init';
 import CommandAdd from '../commands/add';
-const commanders = ['init', 'add']
+const commanders = ['init', 'add'];
      
 export default class Command {
     commander: any;
