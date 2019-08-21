@@ -1,4 +1,4 @@
 
 export default {
-    SALE: 'gitlab:http://gitlab.banggood.cn/sp/angulartemplate-web'
+    SALE: 'gitlab:http://192.168.1.122/sp/angulartemplate-web'
 }
